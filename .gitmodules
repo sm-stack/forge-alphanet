@@ -7,3 +7,6 @@
 [submodule "lib/reference-implementation"]
 	path = lib/reference-implementation
 	url = https://github.com/erc6900/reference-implementation
+[submodule "lib/openzeppelin-contracts"]
+	path = lib/openzeppelin-contracts
+	url = https://github.com/Openzeppelin/openzeppelin-contracts
