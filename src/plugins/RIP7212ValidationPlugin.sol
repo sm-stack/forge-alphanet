@@ -11,6 +11,7 @@ import {
     PluginMetadata,
     IPlugin
 } from "erc6900/reference-implementation/interfaces/IPlugin.sol";
+import {UserOperation} from "@eth-infinitism/account-abstraction/interfaces/UserOperation.sol";
 import {IRIP7212ValidationPlugin} from "./interfaces/IRIP7212ValidationPlugin.sol";
 import {Secp256r1} from "../sign/Secp256r1.sol";
 
@@ -55,6 +56,8 @@ contract RIP7212ValidationPlugin is BasePlugin, IRIP7212ValidationPlugin {
     {
         if (functionId == uint8(FunctionId.USER_OP_VALIDATION_RIP7212)) {
             // userOpHash (bytes32) + sig (bytes) + pubkey (bytes32[2])
+            // pubkey in calldata?
+            bytes memory input = abi.encodePacked(userOpHash, userOp.signature, userOp.pubkey);
         }
     }
 
